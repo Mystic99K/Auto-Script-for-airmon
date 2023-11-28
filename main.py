@@ -1,4 +1,6 @@
 import subprocess
+import time
+
 
 p = subprocess.Popen(['sudo', 'bash', '-c', 'iwconfig | grep IEEE'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 p.communicate(b'3542\n')
@@ -13,13 +15,32 @@ print(net_con_name)
 
 
 
+p = subprocess.Popen(['sudo', 'bash', '-c', 'airmon-ng check kill'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+output, errors = p.communicate()
+out = output.decode('utf-8')
+print(out)
+
+print('done')
 
 
+p = subprocess.Popen(['sudo', 'bash', '-c', f'airmon start {net_con_name}'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
+output, errors = p.communicate()
+out = output.decode('utf-8')
+print(out)
 
+print('done')
 
+time.sleep(2)
 
+p = subprocess.Popen(['sudo', 'bash', '-c', f'airodump-ng {net_con_name} '], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
+output, errors = p.communicate()
+out = output.decode('utf-8')
+print(out)
+
+print('done')
 
 
 
