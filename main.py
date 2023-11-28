@@ -20,7 +20,7 @@ print(net_con_name)
 
 
 
-asd
+
 
 
 # print('Errors:', errors.decode('utf-8'))
