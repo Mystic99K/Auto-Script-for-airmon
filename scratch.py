@@ -1,5 +1,5 @@
 # import os
-# output = os.popen('neofetch').read()
+# output = os.popen('sudo intel_gpu_top').read()
 # print(output)
 
 
@@ -49,14 +49,32 @@
 
 
 
-import subprocess
+# import subprocess
+# import time
+
+
+# p = subprocess.Popen(['speedtest'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+# p.communicate(b'3542\n')
+# output, errors = p.communicate()
+# out = output.decode('utf-8')
+
+
+# print(out)
+
+
+
+
+
+
+
+
+from subprocess import Popen, PIPE
 import time
 
+# Start the process
+p = Popen(['neofetch'], stdin=PIPE)
+# Wait for a while for the process to do its work
+time.sleep(5)
 
-p = subprocess.Popen(['speedtest'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-p.communicate(b'3542\n')
-output, errors = p.communicate()
-out = output.decode('utf-8')
-
-
-print(out)
+# Send 'q' to the stdin of the process
+p.communicate(input='q')
